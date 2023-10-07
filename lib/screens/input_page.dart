@@ -2,6 +2,8 @@ import 'package:Weight_control/calculator.dart';
 import 'package:Weight_control/conponents/bottm_buttn.dart';
 import 'package:Weight_control/conponents/reusablecard.dart';
 import 'package:Weight_control/constans.dart';
+import 'package:Weight_control/screens/Education.dart';
+import 'package:Weight_control/screens/about.dart';
 import 'package:Weight_control/screens/result_page.dart';
 import 'package:Weight_control/conponents/reusablecard.dart';
 import 'package:Weight_control/conponents/round_icon_botton.dart';
@@ -27,14 +29,44 @@ class _InputPageState extends State<InputPage> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Color(0xFF1D1E33),
-          title: Text(
-            'شاخص توده  بدنی',
-            style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                fontFamily: "Lalezar-Regular"),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+            children: [
+              IconButton(
+                icon: Icon(FontAwesomeIcons.envelope),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => about(),
+                    ),
+                  );
+                },
+              ),
+
+              Text(
+                'شاخص توده بدنی',
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Lalezar-Regular",
+                ),
+              ),
+              IconButton(
+                icon: Icon(FontAwesomeIcons.leanpub),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EducationPage(),
+                    ),
+                  );
+                },
+              ),
+            ],
           ),
-          centerTitle: true,
+          centerTitle: false,
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -246,7 +278,7 @@ class _InputPageState extends State<InputPage> {
               title: "محاسبه",
               ontab: () {
                 Calculator calculator =
-                Calculator(height: height, weight: weight);
+                    Calculator(height: height, weight: weight);
                 Navigator.push(
                   context,
                   MaterialPageRoute(

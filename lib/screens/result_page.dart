@@ -17,17 +17,17 @@ class Resultspage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Color(0xFF1D1E33),
 
-        title: Text("Ruslts page"),
+        title: Text("صفحه نتایج",style: TextStyle(fontFamily: "Lalezar-Regular", fontSize: 24),),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
               child: Container(
-            alignment: Alignment.bottomLeft,
+            alignment: Alignment.center,
             padding: EdgeInsets.all(15),
             child: Text(
-              'Your Result',
+              'نتیجه شما',
               style: kTitleTextStyle,
             ),
           )),
@@ -49,9 +49,11 @@ class Resultspage extends StatelessWidget {
                   Column(
                     children: [
                       Text(
-                        "Normal BMI Range :",
+                        "محدوده نرمال شاخص توده  بدنی",
                         style: kgrayBodyTextStyle,
                       ),
+
+
                       Text(
                         "18.5 - 25 kg/m2",
                         style: kBodyTextStyle,
@@ -71,7 +73,7 @@ class Resultspage extends StatelessWidget {
             ),
           ),
           BottomButton(
-            title: 'RE-CALCULATE',
+            title: 'دوباره محاسبه کنید',
             ontab: () {
               Navigator.pop(context);
             },
