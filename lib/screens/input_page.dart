@@ -26,12 +26,15 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-
-
           backgroundColor: Color(0xFF1D1E33),
-          title: Text('BMI CALCULATOR'),
+          title: Text(
+            'شاخص توده  بدنی',
+            style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                fontFamily: "Lalezar-Regular"),
+          ),
           centerTitle: true,
-
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -47,28 +50,59 @@ class _InputPageState extends State<InputPage> {
                     });
                   },
                   child: reusablecard(
-                    color: selectedGendere == Gender.male
-                        ? activecardcolor
-                        : inactivecardcolor,
-                    child:
-                        infomationn(ICON: FontAwesomeIcons.mars, name: "MALE"),
-                  ),
+                      color: selectedGendere == Gender.male
+                          ? activecardcolor
+                          : inactivecardcolor,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            FontAwesomeIcons.mars,
+                            size: 80,
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Text(
+                            "مرد",
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Color(0xFF8D8E98),
+                                fontFamily: "Lalezar-Regular"),
+                          )
+                        ],
+                      )),
                 )),
                 Expanded(
                     child: GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      selectedGendere = Gender.fmale;
-                    });
-                  },
-                  child: reusablecard(
-                    color: selectedGendere == Gender.fmale
-                        ? activecardcolor
-                        : inactivecardcolor,
-                    child: infomationn(
-                        ICON: FontAwesomeIcons.venus, name: "FEMALE"),
-                  ),
-                ))
+                        onTap: () {
+                          setState(() {
+                            selectedGendere = Gender.fmale;
+                          });
+                        },
+                        child: reusablecard(
+                            color: selectedGendere == Gender.fmale
+                                ? activecardcolor
+                                : inactivecardcolor,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  FontAwesomeIcons.venus,
+                                  size: 80,
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                                Text(
+                                  "زن",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: Color(0xFF8D8E98),
+                                      fontFamily: "Lalezar-Regular"),
+                                )
+                              ],
+                            ))))
               ],
             )),
             Expanded(
@@ -77,7 +111,7 @@ class _InputPageState extends State<InputPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "HEIGHT",
+                    "قد",
                     style: lableTextStyle,
                   ),
                   Row(
@@ -129,7 +163,7 @@ class _InputPageState extends State<InputPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "WEIGHT",
+                        "وزن",
                         style: lableTextStyle,
                       ),
                       Text(
@@ -169,7 +203,7 @@ class _InputPageState extends State<InputPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "AGE",
+                        "سن",
                         style: lableTextStyle,
                       ),
                       Text(
@@ -209,9 +243,10 @@ class _InputPageState extends State<InputPage> {
               ],
             )),
             BottomButton(
-              title: ("CALCULATE"),
+              title: "محاسبه",
               ontab: () {
-                Calculator calculator = Calculator( height : height,weight: weight  );
+                Calculator calculator =
+                Calculator(height: height, weight: weight);
                 Navigator.push(
                   context,
                   MaterialPageRoute(

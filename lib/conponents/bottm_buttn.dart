@@ -7,7 +7,7 @@ class BottomButton extends StatelessWidget {
 
   BottomButton({
 
-    required this.title, required this.ontab});
+    required this.title, required this.ontab,});
 
   @override
   Widget build(BuildContext context) {
